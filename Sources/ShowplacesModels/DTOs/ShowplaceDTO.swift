@@ -5,7 +5,6 @@
 //  Created by Kevin Barnes on 5/11/24.
 //
 
-import Fluent
 import Vapor
 
 public struct ShowplaceDTO: Content, Hashable, Identifiable {
