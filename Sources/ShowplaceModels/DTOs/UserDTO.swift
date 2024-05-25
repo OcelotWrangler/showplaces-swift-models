@@ -9,7 +9,7 @@ import Vapor
 
 public struct UserDTO: Content, Hashable, Identifiable {
     
-    public let id: UUID
+    public var id: UUID
     public var email: String
     public var username: String
     public var created: Date

@@ -10,7 +10,7 @@ import Vapor
 
 public struct PostalAddressDTO: Content, Hashable, Identifiable {
     
-    public let id: UUID
+    public var id: UUID
     public var street: String
     public var subLocality: String
     public var postalCode: String
@@ -40,20 +40,5 @@ public struct PostalAddressDTO: Content, Hashable, Identifiable {
         self.state = state
         self.country = country
         self.isoCountryCode = isoCountryCode
-    }
-    
-    public init?(postalAddress: PostalAddress) {
-        guard let id = postalAddress.id else {
-            return nil
-        }
-        self.id = id
-        self.street = postalAddress.street
-        self.subLocality = postalAddress.subLocality
-        self.postalCode = postalAddress.postalCode
-        self.city = postalAddress.city
-        self.subAdministrativeArea = postalAddress.subAdministrativeArea
-        self.state = postalAddress.state
-        self.country = postalAddress.country
-        self.isoCountryCode = postalAddress.isoCountryCode
     }
 }

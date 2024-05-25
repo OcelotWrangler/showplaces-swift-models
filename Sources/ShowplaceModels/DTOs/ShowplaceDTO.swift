@@ -53,44 +53,4 @@ public struct ShowplaceDTO: Content, Hashable, Identifiable {
         self.longitude = longitude
         self.postalAddress = postalAddress
     }
-    
-    public init?(showplace: Showplace, db: Database) async throws {
-        guard let id = showplace.id else {
-            return nil
-        }
-        self.id = id
-        
-        self.title = showplace.title
-        self.subtitle = showplace.subtitle
-        self.description = showplace.description
-        
-        let tags = try await showplace.$tags.get(on: db)
-        self.tags = tags
-            .map { TagDTO(tag: $0) }
-            .filter { $0 != nil }
-            .map { $0! }
-        
-        self.imageKeys = showplace.imageKeys
-        
-        guard let created = showplace.created else {
-            return nil
-        }
-        self.created = created
-        
-        guard let updated = showplace.updated else {
-            return nil
-        }
-        self.updated = updated
-        
-        self.startDate = showplace.startDate
-        self.endDate = showplace.endDate
-        self.latitude = showplace.latitude
-        self.longitude = showplace.longitude
-        
-        let postalAddress = try await showplace.$postalAddress.get(on: db)
-        guard let postalAddress = PostalAddressDTO(postalAddress: postalAddress) else {
-            return nil
-        }
-        self.postalAddress = postalAddress
-    }
 }

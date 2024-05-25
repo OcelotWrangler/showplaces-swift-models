@@ -10,7 +10,7 @@ import Vapor
 
 public struct TagDTO: Content, Hashable, Identifiable {
     
-    public let id: UUID
+    public var id: UUID
     public var title: String
     public var color: String?
     public var sfSymbol: String?
@@ -33,25 +33,6 @@ public struct TagDTO: Content, Hashable, Identifiable {
         self.sfSymbol = sfSymbol
         self.archived = archived
         self.created = created
-        self.updated = updated
-    }
-    
-    public init?(tag: Tag) {
-        guard let id = tag.id else {
-            return nil
-        }
-        self.id = id
-        self.title = tag.title
-        self.color = tag.color
-        self.sfSymbol = tag.sfSymbol
-        self.archived = tag.archived
-        guard let created = tag.created else {
-            return nil
-        }
-        self.created = created
-        guard let updated = tag.updated else {
-            return nil
-        }
         self.updated = updated
     }
 }
