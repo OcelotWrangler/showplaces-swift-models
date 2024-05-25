@@ -17,7 +17,7 @@ let package = Package(
         ),
     ], 
     dependencies: [
-        .package(url: "https://github.com/vapor/fluent.git", from: "4.8.0"),
+        .package(url: "https://github.com/vapor/vapor.git", from: "4.89.0"),
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
@@ -25,7 +25,7 @@ let package = Package(
         .target(
             name: "ShowplaceModels",
             dependencies: [
-                .product(name: "Fluent", package: "fluent"),
+                .product(name: "Vapor", package: "vapor"),
             ]
         ),
         .testTarget(
