@@ -28,27 +28,4 @@ public struct UserDTO: Content, Hashable, Identifiable {
         self.created = created
         self.updated = updated
     }
-    
-//    init?(user: User) {
-//        guard let id = user.id else {
-//            return nil
-//        }
-//        
-//        self.id = id
-//        
-//        self.email = user.email
-//        self.username = user.username
-//        
-//        guard let created = user.created else {
-//            return nil
-//        }
-//        
-//        self.created = created
-//        
-//        guard let updated = user.updated else {
-//            return nil
-//        }
-//        
-//        self.updated = updated
-//    }
 }

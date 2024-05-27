@@ -1,7 +1,7 @@
 import XCTest
-@testable import ShowplaceModels
+@testable import ShowplacesModels
 
-final class ShowplaceModelsTests: XCTestCase {
+final class ShowplacesModelsTests: XCTestCase {
     func testExample() throws {
         // XCTest Documentation
         // https://developer.apple.com/documentation/xctest
