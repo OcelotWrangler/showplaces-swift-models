@@ -14,21 +14,18 @@ public struct UpdateTagDTO: Content, Hashable, Identifiable {
     public var color: String?
     public var sfSymbol: String?
     public var archived: Bool
-    public var position: Int
     
     public init(
         id: UUID,
         title: String,
         color: String? = nil,
         sfSymbol: String? = nil,
-        archived: Bool,
-        position: Int
+        archived: Bool
     ) {
         self.id = id
         self.title = title
         self.color = color
         self.sfSymbol = sfSymbol
         self.archived = archived
-        self.position = position
     }
 }
