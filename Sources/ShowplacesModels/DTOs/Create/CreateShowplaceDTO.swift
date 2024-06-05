@@ -14,7 +14,7 @@ public struct CreateShowplaceDTO: Content, Hashable {
     public var description: String?
     public var tagIds: [UUID]
     public var groupIds: [UUID]
-    public var imageKeys: [String]
+    public var mediaKeys: [String]
     public var startDate: Date?
     public var endDate: Date?
     public var latitude: Double
@@ -27,7 +27,7 @@ public struct CreateShowplaceDTO: Content, Hashable {
         description: String? = nil,
         tagIds: [UUID],
         groupIds: [UUID],
-        imageKeys: [String],
+        mediaKeys: [String],
         startDate: Date? = nil,
         endDate: Date? = nil,
         latitude: Double,
@@ -39,7 +39,7 @@ public struct CreateShowplaceDTO: Content, Hashable {
         self.description = description
         self.tagIds = tagIds
         self.groupIds = groupIds
-        self.imageKeys = imageKeys
+        self.mediaKeys = mediaKeys
         self.startDate = startDate
         self.endDate = endDate
         self.latitude = latitude

@@ -14,7 +14,7 @@ public struct ShowplaceDTO: Content, Hashable, Identifiable {
     public var subtitle: String?
     public var description: String?
     public var tags: [TagDTO]
-    public var imageKeys: [String]
+    public var mediaKeys: [String]
     public var created: Date
     public var updated: Date
     public var startDate: Date?
@@ -29,7 +29,7 @@ public struct ShowplaceDTO: Content, Hashable, Identifiable {
         subtitle: String? = nil,
         description: String? = nil,
         tags: [TagDTO],
-        imageKeys: [String],
+        mediaKeys: [String],
         created: Date,
         updated: Date,
         startDate: Date? = nil,
@@ -43,7 +43,7 @@ public struct ShowplaceDTO: Content, Hashable, Identifiable {
         self.subtitle = subtitle
         self.description = description
         self.tags = tags
-        self.imageKeys = imageKeys
+        self.mediaKeys = mediaKeys
         self.created = created
         self.updated = updated
         self.startDate = startDate
