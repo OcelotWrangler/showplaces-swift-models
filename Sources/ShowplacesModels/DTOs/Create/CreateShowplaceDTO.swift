@@ -20,6 +20,7 @@ public struct CreateShowplaceDTO: Content, Hashable {
     public var latitude: Double
     public var longitude: Double
     public var postalAddress: CreatePostalAddressDTO
+    public var visited: Bool
     
     public init(
         title: String,
@@ -32,7 +33,8 @@ public struct CreateShowplaceDTO: Content, Hashable {
         endDate: Date? = nil,
         latitude: Double,
         longitude: Double,
-        postalAddress: CreatePostalAddressDTO
+        postalAddress: CreatePostalAddressDTO,
+        visited: Bool = false
     ) {
         self.title = title
         self.subtitle = subtitle
@@ -45,5 +47,6 @@ public struct CreateShowplaceDTO: Content, Hashable {
         self.latitude = latitude
         self.longitude = longitude
         self.postalAddress = postalAddress
+        self.visited = visited
     }
 }

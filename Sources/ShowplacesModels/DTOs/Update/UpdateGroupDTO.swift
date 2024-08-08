@@ -16,6 +16,7 @@ public struct UpdateGroupDTO: Content, Hashable, Identifiable {
     public var showplaceIds: [UUID]
     public var imageKey: String?
     public var showTitleOnHeader: Bool
+    public var accessibleByLink: Bool
     
     public init(
         id: UUID,
@@ -24,7 +25,8 @@ public struct UpdateGroupDTO: Content, Hashable, Identifiable {
         tagIds: [UUID],
         showplaceIds: [UUID],
         imageKey: String? = nil,
-        showTitleOnHeader: Bool
+        showTitleOnHeader: Bool,
+        accessibleByLink: Bool = false
     ) {
         self.id = id
         self.title = title
@@ -33,5 +35,6 @@ public struct UpdateGroupDTO: Content, Hashable, Identifiable {
         self.showplaceIds = showplaceIds
         self.imageKey = imageKey
         self.showTitleOnHeader = showTitleOnHeader
+        self.accessibleByLink = accessibleByLink
     }
 }
