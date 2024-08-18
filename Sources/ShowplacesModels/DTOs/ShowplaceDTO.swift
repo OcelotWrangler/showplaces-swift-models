@@ -22,6 +22,8 @@ public struct ShowplaceDTO: Content, Hashable, Identifiable {
     public var latitude: Double
     public var longitude: Double
     public var postalAddress: PostalAddressDTO
+    public var accessibleByLink: Bool
+    public var visited: Bool
     
     public init(
         id: UUID,
@@ -36,7 +38,9 @@ public struct ShowplaceDTO: Content, Hashable, Identifiable {
         endDate: Date? = nil,
         latitude: Double,
         longitude: Double,
-        postalAddress: PostalAddressDTO
+        postalAddress: PostalAddressDTO,
+        accessibleByLink: Bool,
+        visited: Bool
     ) {
         self.id = id
         self.title = title
@@ -51,5 +55,7 @@ public struct ShowplaceDTO: Content, Hashable, Identifiable {
         self.latitude = latitude
         self.longitude = longitude
         self.postalAddress = postalAddress
+        self.accessibleByLink = accessibleByLink
+        self.visited = visited
     }
 }
