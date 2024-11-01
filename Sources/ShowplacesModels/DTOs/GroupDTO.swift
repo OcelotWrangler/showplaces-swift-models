@@ -18,7 +18,11 @@ public struct GroupDTO: Content, Hashable, Identifiable {
     public var updated: Date
     public var imageKey: String?
     public var showTitleOnHeader: Bool
-    public var accessibleByLink: Bool
+    public var ownershipStatus: OwnershipStatus
+    /// The number of users this group has been shared with, if any.
+    public var sharedWith: Int?
+    /// Only returned if this is a shared group and is not owned by the signed-in user.
+    public var owner: UserDTO?
     
     public init(
         id: UUID,
@@ -30,7 +34,9 @@ public struct GroupDTO: Content, Hashable, Identifiable {
         updated: Date,
         imageKey: String? = nil,
         showTitleOnHeader: Bool,
-        accessibleByLink: Bool
+        ownershipStatus: OwnershipStatus,
+        sharedWith: Int? = nil,
+        owner: UserDTO? = nil
     ) {
         self.id = id
         self.title = title
@@ -41,6 +47,8 @@ public struct GroupDTO: Content, Hashable, Identifiable {
         self.updated = updated
         self.imageKey = imageKey
         self.showTitleOnHeader = showTitleOnHeader
-        self.accessibleByLink = accessibleByLink
+        self.ownershipStatus = ownershipStatus
+        self.sharedWith = sharedWith
+        self.owner = owner
     }
 }

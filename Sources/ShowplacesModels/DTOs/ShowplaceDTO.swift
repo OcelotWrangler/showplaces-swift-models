@@ -22,8 +22,12 @@ public struct ShowplaceDTO: Content, Hashable, Identifiable {
     public var latitude: Double
     public var longitude: Double
     public var postalAddress: PostalAddressDTO
-    public var accessibleByLink: Bool
     public var visited: Bool
+    public var ownershipStatus: OwnershipStatus
+    /// The number of users this showplace has been shared with, if any.
+    public var sharedWith: Int?
+    /// Only returned if this is a shared showplace and is not owned by the signed-in user.
+    public var owner: UserDTO?
     
     public init(
         id: UUID,
@@ -39,8 +43,10 @@ public struct ShowplaceDTO: Content, Hashable, Identifiable {
         latitude: Double,
         longitude: Double,
         postalAddress: PostalAddressDTO,
-        accessibleByLink: Bool,
-        visited: Bool
+        visited: Bool,
+        ownershipStatus: OwnershipStatus,
+        sharedWith: Int? = nil,
+        owner: UserDTO? = nil
     ) {
         self.id = id
         self.title = title
@@ -55,7 +61,9 @@ public struct ShowplaceDTO: Content, Hashable, Identifiable {
         self.latitude = latitude
         self.longitude = longitude
         self.postalAddress = postalAddress
-        self.accessibleByLink = accessibleByLink
         self.visited = visited
+        self.ownershipStatus = ownershipStatus
+        self.sharedWith = sharedWith
+        self.owner = owner
     }
 }

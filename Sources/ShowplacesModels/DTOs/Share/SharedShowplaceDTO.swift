@@ -1,28 +1,31 @@
 //
 //  SharedShowplaceDTO.swift
-//  
+//  ShowplacesModels
 //
-//  Created by Kevin Barnes on 8/8/24.
+//  Created by Kevin Barnes on 10/31/24.
 //
 
 import Vapor
 
-public struct SharedShowplaceDTO: Content, Hashable, Identifiable {
+/// Retrieve a shared showplace from a share ID.
+public struct SharedShowplaceDTO: Content {
     
-    public var id: UUID
-    public var accessLevel: AccessLevel
+    /// The showplace that was shared.
     public var showplace: ShowplaceDTO
-    public var sharedBy: UserDTO
+    
+    /// The type of share: live or copy.
+    public var shareType: ShareType
+    
+    /// The access level if this is a live share. If this is a copy then the access level is view only.
+    public var accessLevel: AccessLevel
     
     public init(
-        id: UUID,
-        accessLevel: AccessLevel,
         showplace: ShowplaceDTO,
-        sharedBy: UserDTO
+        shareType: ShareType,
+        accessLevel: AccessLevel
     ) {
-        self.id = id
-        self.accessLevel = accessLevel
         self.showplace = showplace
-        self.sharedBy = sharedBy
+        self.shareType = shareType
+        self.accessLevel = accessLevel
     }
 }
