@@ -8,7 +8,7 @@
 import Vapor
 
 /// Retrieve a shared showplace from a share ID.
-public struct SharedShowplaceDTO: Content {
+public struct SharedShowplaceDTO: Content, Hashable {
     
     /// The showplace that was shared.
     public var showplace: ShowplaceDTO
