@@ -7,7 +7,7 @@
 
 import Foundation
 
-public enum OwnershipStatus: String, Codable, RawRepresentable {
+public enum OwnershipStatus: String, Codable, RawRepresentable, Sendable {
     case ownedByMe = "OWNED_BY_ME"
     case sharedAndEditable = "SHARED_AND_EDITABLE"
     case sharedViewOnly = "SHARED_VIEW_ONLY"

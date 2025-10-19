@@ -7,7 +7,7 @@
 
 import Foundation
 
-public enum ShareType: String, Codable, RawRepresentable {
+public enum ShareType: String, Codable, RawRepresentable, Sendable {
     case copy = "COPY"
     case live = "LIVE"
 }

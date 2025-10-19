@@ -7,7 +7,7 @@
 
 import Foundation
 
-public enum AccessLevel: String, Codable, RawRepresentable {
+public enum AccessLevel: String, Codable, RawRepresentable, Sendable {
     case viewOnly = "VIEW_ONLY"
     case editable = "EDITABLE"
 }
