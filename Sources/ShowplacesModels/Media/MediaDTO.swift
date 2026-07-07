@@ -14,6 +14,8 @@ public struct MediaDTO: Content, Hashable, Identifiable {
     public var created: Date
     public var width: Int?
     public var height: Int?
+    public var fileSize: Int?
+    public var duration: Double?
     public var key: String
     public var url: String
     public var contentType: String
@@ -27,6 +29,8 @@ public struct MediaDTO: Content, Hashable, Identifiable {
         created: Date,
         width: Int? = nil,
         height: Int? = nil,
+        fileSize: Int? = nil,
+        duration: Double? = nil,
         key: String,
         url: String,
         contentType: String,
@@ -39,6 +43,8 @@ public struct MediaDTO: Content, Hashable, Identifiable {
         self.created = created
         self.width = width
         self.height = height
+        self.fileSize = fileSize
+        self.duration = duration
         self.key = key
         self.url = url
         self.contentType = contentType
