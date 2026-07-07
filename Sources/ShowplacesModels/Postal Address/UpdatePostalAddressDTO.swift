@@ -7,9 +7,8 @@
 
 import Vapor
 
-public struct UpdatePostalAddressDTO: Content, Hashable, Identifiable {
+public struct UpdatePostalAddressDTO: Content, Hashable {
     
-    public let id: UUID
     public var street: String
     public var subLocality: String
     public var postalCode: String
@@ -20,7 +19,6 @@ public struct UpdatePostalAddressDTO: Content, Hashable, Identifiable {
     public var isoCountryCode: String
     
     public init(
-        id: UUID,
         street: String,
         subLocality: String,
         postalCode: String,
@@ -30,7 +28,6 @@ public struct UpdatePostalAddressDTO: Content, Hashable, Identifiable {
         country: String,
         isoCountryCode: String
     ) {
-        self.id = id
         self.street = street
         self.subLocality = subLocality
         self.postalCode = postalCode

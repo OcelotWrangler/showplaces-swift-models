@@ -12,17 +12,14 @@ public struct CreateUserDTO: Content {
     public var email: String
     public var firstName: String?
     public var lastName: String?
-    public var password: String
     
     public init(
         email: String,
         firstName: String? = nil,
-        lastName: String? = nil,
-        password: String
+        lastName: String? = nil
     ) {
         self.email = email
         self.firstName = firstName
         self.lastName = lastName
-        self.password = password
     }
 }

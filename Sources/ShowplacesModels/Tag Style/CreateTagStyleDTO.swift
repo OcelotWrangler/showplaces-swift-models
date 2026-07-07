@@ -1,27 +1,24 @@
 //
-//  CreateTagDTO.swift
-//  
+//  CreateTagStyleDTO.swift
 //
-//  Created by Kevin Barnes on 5/11/24.
+//  Created by Kevin Barnes on 6/25/26.
 //
 
+import Foundation
 import Vapor
 
-public struct CreateTagDTO: Content, Hashable {
+public struct CreateTagStyleDTO: Content, Hashable {
     
     public var title: String
-    public var description: String?
     public var color: String?
     public var sfSymbol: String?
     
     public init(
         title: String,
-        description: String? = nil,
         color: String? = nil,
         sfSymbol: String? = nil
     ) {
         self.title = title
-        self.description = description
         self.color = color
         self.sfSymbol = sfSymbol
     }
