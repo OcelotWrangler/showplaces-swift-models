@@ -9,11 +9,11 @@ import Vapor
 
 public struct ModifyCollaboratorDTO: Content {
     
-    public var collaboratorId: Int
+    public var collaboratorId: UUID
     public var accessLevel: AccessLevel
-    
+
     public init(
-        collaboratorId: Int,
+        collaboratorId: UUID,
         accessLevel: AccessLevel
     ) {
         self.collaboratorId = collaboratorId

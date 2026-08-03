@@ -10,7 +10,7 @@ import Vapor
 
 public struct MediaDTO: Content, Hashable, Identifiable {
     
-    public let id: Int
+    public let id: UUID
     public var created: Date
     public var width: Int?
     public var height: Int?
@@ -23,9 +23,11 @@ public struct MediaDTO: Content, Hashable, Identifiable {
     public var thumbnailUrl: String?
     public var thumbnailWidth: Int?
     public var thumbnailHeight: Int?
-    
+    /// Display purposes only, not ownership — media stays on the showplace even if this user leaves or deletes their account, so this may be nil.
+    public var uploadedBy: UUID?
+
     public init(
-        id: Int,
+        id: UUID,
         created: Date,
         width: Int? = nil,
         height: Int? = nil,
@@ -37,7 +39,8 @@ public struct MediaDTO: Content, Hashable, Identifiable {
         thumbnailKey: String? = nil,
         thumbnailUrl: String? = nil,
         thumbnailWidth: Int? = nil,
-        thumbnailHeight: Int? = nil
+        thumbnailHeight: Int? = nil,
+        uploadedBy: UUID? = nil
     ) {
         self.id = id
         self.created = created
@@ -52,5 +55,6 @@ public struct MediaDTO: Content, Hashable, Identifiable {
         self.thumbnailUrl = thumbnailUrl
         self.thumbnailWidth = thumbnailWidth
         self.thumbnailHeight = thumbnailHeight
+        self.uploadedBy = uploadedBy
     }
 }
