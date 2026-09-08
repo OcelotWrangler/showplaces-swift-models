@@ -28,6 +28,7 @@ public struct MediaDTO: Content, Hashable, Identifiable {
 
     public init(
         id: UUID,
+        showplaceId: UUID? = nil,
         created: Date,
         width: Int? = nil,
         height: Int? = nil,
@@ -43,6 +44,7 @@ public struct MediaDTO: Content, Hashable, Identifiable {
         uploadedBy: UUID? = nil
     ) {
         self.id = id
+        self.showplaceId = showplaceId
         self.created = created
         self.width = width
         self.height = height

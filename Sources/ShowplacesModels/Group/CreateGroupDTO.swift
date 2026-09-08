@@ -9,17 +9,22 @@ import Vapor
 
 public struct CreateGroupDTO: Content, Hashable {
     
+    /// Client-assigned. See `CreateShowplaceDTO.id` — same idempotency contract.
+    public var id: UUID
+    
     public var title: String
     public var description: String?
     public var showplaceIds: [UUID]
     public var coverImageKey: String?
     
     public init(
+        id: UUID = UUID(),
         title: String,
         description: String? = nil,
         showplaceIds: [UUID],
         coverImageKey: String? = nil
     ) {
+        self.id = id
         self.title = title
         self.description = description
         self.showplaceIds = showplaceIds

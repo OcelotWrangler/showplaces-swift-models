@@ -9,6 +9,14 @@ import Vapor
 
 public struct CreateShowplaceDTO: Content, Hashable {
     
+    /// Assigned by the client so a showplace has an identity before it reaches the server.
+    ///
+    /// This is the idempotency key: creating with an id that already exists returns the existing
+    /// record rather than a duplicate, which is what makes a create safe to retry after a dropped
+    /// response. It also lets a showplace created offline be referenced locally — by its tags, its
+    /// media and its group membership — before it has ever synced.
+    public var id: UUID
+    
     public var title: String
     public var subtitle: String?
     public var description: String?
@@ -20,6 +28,7 @@ public struct CreateShowplaceDTO: Content, Hashable {
     public var postalAddress: CreatePostalAddressDTO
     
     public init(
+        id: UUID = UUID(),
         title: String,
         subtitle: String? = nil,
         description: String? = nil,
@@ -30,6 +39,7 @@ public struct CreateShowplaceDTO: Content, Hashable {
         longitude: Double,
         postalAddress: CreatePostalAddressDTO
     ) {
+        self.id = id
         self.title = title
         self.subtitle = subtitle
         self.description = description
