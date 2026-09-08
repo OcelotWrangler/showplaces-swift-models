@@ -10,13 +10,10 @@ import Vapor
 public struct UpdateTagDTO: Content, Hashable {
     
     public var title: String
-    public var description: String?
     
     public init(
-        title: String,
-        description: String? = nil
+        title: String
     ) {
         self.title = title
-        self.description = description
     }
 }

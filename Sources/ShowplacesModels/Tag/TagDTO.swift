@@ -12,15 +12,12 @@ public struct TagDTO: Content, Hashable, Identifiable {
     
     public var id: UUID
     public var title: String
-    public var description: String?
     
     public init(
         id: UUID,
-        title: String,
-        description: String? = nil
+        title: String
     ) {
         self.id = id
         self.title = title
-        self.description = description
     }
 }
