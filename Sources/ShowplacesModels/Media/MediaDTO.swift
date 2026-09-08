@@ -11,6 +11,9 @@ import Vapor
 public struct MediaDTO: Content, Hashable, Identifiable {
     
     public let id: UUID
+    /// The showplace this media hangs off, when it has one. Populated by the bulk endpoint so a
+    /// client can group a whole library's media from a single response; nil for a group cover.
+    public var showplaceId: UUID?
     public var created: Date
     public var width: Int?
     public var height: Int?
