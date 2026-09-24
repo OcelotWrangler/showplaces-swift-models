@@ -4,9 +4,8 @@
 //
 
 import Foundation
-import Vapor
 
-public struct RenameTagResponse: Content, Hashable {
+public struct RenameTagResponse: Codable, Sendable, Hashable {
 
     /// How many of the user's showplaces carried the tag and were updated.
     public var showplacesUpdated: Int

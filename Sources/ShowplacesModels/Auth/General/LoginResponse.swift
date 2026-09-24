@@ -5,9 +5,9 @@
 //  Created by Kevin Barnes on 5/23/24.
 //
 
-import Vapor
+import Foundation
 
-public struct LoginResponse: Content {
+public struct LoginResponse: Codable, Sendable {
     
     public var accessToken: String
     public var refreshToken: UUID

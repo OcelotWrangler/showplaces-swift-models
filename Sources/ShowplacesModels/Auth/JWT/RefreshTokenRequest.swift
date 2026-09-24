@@ -5,9 +5,9 @@
 //  Created by Kevin Barnes on 5/23/24.
 //
 
-import Vapor
+import Foundation
 
-public struct RefreshTokenRequest: Content {
+public struct RefreshTokenRequest: Codable, Sendable {
     
     public var refreshToken: UUID
     

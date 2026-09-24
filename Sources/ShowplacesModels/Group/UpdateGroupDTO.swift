@@ -5,9 +5,9 @@
 //  Created by Kevin Barnes on 5/12/24.
 //
 
-import Vapor
+import Foundation
 
-public struct UpdateGroupDTO: Content, Hashable, Identifiable {
+public struct UpdateGroupDTO: Codable, Sendable, Hashable, Identifiable {
     
     public let id: UUID
     public var title: String

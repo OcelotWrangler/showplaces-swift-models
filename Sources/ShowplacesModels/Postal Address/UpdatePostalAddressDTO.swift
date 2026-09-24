@@ -5,9 +5,9 @@
 //  Created by Kevin Barnes on 5/12/24.
 //
 
-import Vapor
+import Foundation
 
-public struct UpdatePostalAddressDTO: Content, Hashable {
+public struct UpdatePostalAddressDTO: Codable, Sendable, Hashable {
     
     public var street: String
     public var subLocality: String

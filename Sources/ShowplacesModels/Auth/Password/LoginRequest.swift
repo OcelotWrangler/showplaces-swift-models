@@ -5,9 +5,9 @@
 //  Created by Kevin Barnes on 5/23/24.
 //
 
-import Vapor
+import Foundation
 
-public struct LoginRequest: Content {
+public struct LoginRequest: Codable, Sendable {
     
     public var username: String
     public var password: String

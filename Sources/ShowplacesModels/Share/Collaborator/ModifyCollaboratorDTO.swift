@@ -5,9 +5,9 @@
 //  Created by Kevin Barnes on 8/8/24.
 //
 
-import Vapor
+import Foundation
 
-public struct ModifyCollaboratorDTO: Content {
+public struct ModifyCollaboratorDTO: Codable, Sendable {
     
     public var collaboratorId: UUID
     public var accessLevel: AccessLevel

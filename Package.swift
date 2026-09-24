@@ -15,18 +15,15 @@ let package = Package(
             name: "ShowplacesModels",
             targets: ["ShowplacesModels"]
         ),
-    ], 
-    dependencies: [
-        .package(url: "https://github.com/vapor/vapor.git", from: "4.89.0"),
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
         // Targets can depend on other targets in this package and products from dependencies.
+        // No dependencies, deliberately: the iOS app links this package, so a server
+        // framework here ships inside the app. Pharos adds Vapor's `Content` conformance
+        // to these types itself, in `ShowplacesModels+Content.swift`.
         .target(
-            name: "ShowplacesModels",
-            dependencies: [
-                .product(name: "Vapor", package: "vapor"),
-            ]
+            name: "ShowplacesModels"
         ),
         .testTarget(
             name: "ShowplacesModelsTests",

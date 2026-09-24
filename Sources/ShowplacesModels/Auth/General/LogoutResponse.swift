@@ -5,9 +5,9 @@
 //  Created by Kevin Barnes on 5/26/24.
 //
 
-import Vapor
+import Foundation
 
-public struct LogoutResponse: Content {
+public struct LogoutResponse: Codable, Sendable {
     
     public var loggedOut: Bool
     

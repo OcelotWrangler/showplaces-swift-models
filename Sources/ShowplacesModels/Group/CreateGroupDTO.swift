@@ -5,9 +5,9 @@
 //  Created by Kevin Barnes on 5/11/24.
 //
 
-import Vapor
+import Foundation
 
-public struct CreateGroupDTO: Content, Hashable {
+public struct CreateGroupDTO: Codable, Sendable, Hashable {
     
     /// Client-assigned. See `CreateShowplaceDTO.id` — same idempotency contract.
     public var id: UUID

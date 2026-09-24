@@ -5,9 +5,9 @@
 //  Created by Kevin Barnes on 5/11/24.
 //
 
-import Vapor
+import Foundation
 
-public struct CreateShowplaceDTO: Content, Hashable {
+public struct CreateShowplaceDTO: Codable, Sendable, Hashable {
     
     /// Assigned by the client so a showplace has an identity before it reaches the server.
     ///

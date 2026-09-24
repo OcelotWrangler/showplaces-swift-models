@@ -5,9 +5,9 @@
 //  Created by Kevin Barnes on 5/24/24.
 //
 
-import Vapor
+import Foundation
 
-public struct ResetPasswordResponse: Content {
+public struct ResetPasswordResponse: Codable, Sendable {
     
     public var reset: Bool
     

@@ -5,9 +5,9 @@
 //  Created by Kevin Barnes on 5/24/24.
 //
 
-import Vapor
+import Foundation
 
-public struct ValidateEmailResponse: Content {
+public struct ValidateEmailResponse: Codable, Sendable {
     
     public var validated: Bool
     

@@ -5,9 +5,9 @@
 //  Created by Kevin Barnes on 11/1/24.
 //
 
-import Vapor
+import Foundation
 
-public struct ShowplaceInviteDTO: Content, Hashable, Identifiable {
+public struct ShowplaceInviteDTO: Codable, Sendable, Hashable, Identifiable {
     
     public let id: UUID
     public var errorMessage: String?

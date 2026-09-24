@@ -5,9 +5,9 @@
 //  Created by Kevin Barnes on 8/9/24.
 //
 
-import Vapor
+import Foundation
 
-public struct SuccessStatus: Content {
+public struct SuccessStatus: Codable, Sendable {
     
     public var success: Bool
     

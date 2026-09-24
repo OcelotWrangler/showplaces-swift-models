@@ -5,9 +5,9 @@
 //  Created by Kevin Barnes on 5/11/24.
 //
 
-import Vapor
+import Foundation
 
-public struct ShowplaceDTO: Content, Hashable, Identifiable {
+public struct ShowplaceDTO: Codable, Sendable, Hashable, Identifiable {
     
     public var id: UUID
     public var title: String

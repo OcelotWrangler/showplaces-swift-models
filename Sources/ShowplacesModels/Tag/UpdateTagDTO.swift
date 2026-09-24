@@ -5,9 +5,9 @@
 //  Created by Kevin Barnes on 5/12/24.
 //
 
-import Vapor
+import Foundation
 
-public struct UpdateTagDTO: Content, Hashable {
+public struct UpdateTagDTO: Codable, Sendable, Hashable {
     
     public var title: String
     

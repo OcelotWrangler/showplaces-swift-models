@@ -5,10 +5,10 @@
 //  Created by Kevin Barnes on 8/3/26.
 //
 
-import Vapor
+import Foundation
 
 /// Retrieve a shared group from a share ID.
-public struct SharedGroupDTO: Content, Hashable {
+public struct SharedGroupDTO: Codable, Sendable, Hashable {
 
     /// The group that was shared.
     public var group: GroupDTO

@@ -5,9 +5,9 @@
 //  Created by Kevin Barnes on 8/3/26.
 //
 
-import Vapor
+import Foundation
 
-public struct GroupInviteDTO: Content, Hashable, Identifiable {
+public struct GroupInviteDTO: Codable, Sendable, Hashable, Identifiable {
 
     public let id: UUID
     public var errorMessage: String?

@@ -7,9 +7,7 @@
 
 import Foundation
 
-import Vapor
-
-public struct CreationStatus: Content {
+public struct CreationStatus: Codable, Sendable {
     
     public var created: Bool
     

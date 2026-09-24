@@ -5,9 +5,9 @@
 //  Created by Kevin Barnes on 5/24/24.
 //
 
-import Vapor
+import Foundation
 
-public struct ResetPasswordRequest: Content {
+public struct ResetPasswordRequest: Codable, Sendable {
     
     public var code: UUID
     public var password: String

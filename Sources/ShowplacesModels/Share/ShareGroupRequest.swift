@@ -5,9 +5,9 @@
 //  Created by Kevin Barnes on 8/3/26.
 //
 
-import Vapor
+import Foundation
 
-public struct ShareGroupRequest: Content {
+public struct ShareGroupRequest: Codable, Sendable {
 
     public var groupId: UUID
     public var shareType: ShareType

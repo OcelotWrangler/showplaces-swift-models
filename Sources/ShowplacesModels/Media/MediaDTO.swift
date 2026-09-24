@@ -6,9 +6,8 @@
 //
 
 import Foundation
-import Vapor
 
-public struct MediaDTO: Content, Hashable, Identifiable {
+public struct MediaDTO: Codable, Sendable, Hashable, Identifiable {
     
     public let id: UUID
     /// The showplace this media hangs off, when it has one. Populated by the bulk endpoint so a

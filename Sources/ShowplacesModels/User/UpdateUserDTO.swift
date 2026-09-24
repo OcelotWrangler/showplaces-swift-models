@@ -5,9 +5,9 @@
 //  Created by Kevin Barnes on 8/5/24.
 //
 
-import Vapor
+import Foundation
 
-public struct UpdateUserDTO: Content {
+public struct UpdateUserDTO: Codable, Sendable {
     
     public var email: String
     public var firstName: String?

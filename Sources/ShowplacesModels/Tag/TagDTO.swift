@@ -6,9 +6,8 @@
 //
 
 import Foundation
-import Vapor
 
-public struct TagDTO: Content, Hashable, Identifiable {
+public struct TagDTO: Codable, Sendable, Hashable, Identifiable {
     
     public var id: UUID
     public var title: String

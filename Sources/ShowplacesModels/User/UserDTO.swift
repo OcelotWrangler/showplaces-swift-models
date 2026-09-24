@@ -5,9 +5,9 @@
 //  Created by Kevin Barnes on 5/23/24.
 //
 
-import Vapor
+import Foundation
 
-public struct UserDTO: Content, Hashable, Identifiable {
+public struct UserDTO: Codable, Sendable, Hashable, Identifiable {
     
     public var id: UUID
     public var email: String

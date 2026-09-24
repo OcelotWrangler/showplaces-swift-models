@@ -6,9 +6,8 @@
 //
 
 import Foundation
-import Vapor
 
-public struct PostalAddressDTO: Content, Hashable, Identifiable {
+public struct PostalAddressDTO: Codable, Sendable, Hashable, Identifiable {
     
     public var id: UUID
     public var street: String

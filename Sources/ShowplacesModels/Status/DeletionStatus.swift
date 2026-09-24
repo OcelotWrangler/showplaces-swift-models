@@ -5,9 +5,9 @@
 //  Created by Kevin Barnes on 5/25/24.
 //
 
-import Vapor
+import Foundation
 
-public struct DeletionStatus: Content {
+public struct DeletionStatus: Codable, Sendable {
     
     public var deleted: Bool
     

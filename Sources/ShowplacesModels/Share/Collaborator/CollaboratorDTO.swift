@@ -5,9 +5,9 @@
 //  Created by Kevin Barnes on 8/8/24.
 //
 
-import Vapor
+import Foundation
 
-public struct SharedWithDTO: Content {
+public struct SharedWithDTO: Codable, Sendable {
     
     public var user: UserDTO
     public var accessLevel: AccessLevel

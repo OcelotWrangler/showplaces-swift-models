@@ -5,9 +5,9 @@
 //  Created by Kevin Barnes on 10/31/24.
 //
 
-import Vapor
+import Foundation
 
-public struct ShareShowplaceRequest: Content {
+public struct ShareShowplaceRequest: Codable, Sendable {
     
     public var showplaceId: UUID
     public var shareType: ShareType

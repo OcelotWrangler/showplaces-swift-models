@@ -5,10 +5,10 @@
 //  Created by Kevin Barnes on 10/31/24.
 //
 
-import Vapor
+import Foundation
 
 /// Retrieve a shared showplace from a share ID.
-public struct SharedShowplaceDTO: Content, Hashable {
+public struct SharedShowplaceDTO: Codable, Sendable, Hashable {
     
     /// The showplace that was shared.
     public var showplace: ShowplaceDTO

@@ -5,9 +5,8 @@
 //
 
 import Foundation
-import Vapor
 
-public struct CreateTagStyleDTO: Content, Hashable {
+public struct CreateTagStyleDTO: Codable, Sendable, Hashable {
     
     /// Client-assigned. See `CreateShowplaceDTO.id` — same idempotency contract.
     public var id: UUID

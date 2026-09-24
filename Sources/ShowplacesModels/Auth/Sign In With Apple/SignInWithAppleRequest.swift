@@ -5,9 +5,9 @@
 //  Created by Kevin Barnes on 11/29/24.
 //
 
-import Vapor
+import Foundation
 
-public struct SignInWithAppleRequest: Content {
+public struct SignInWithAppleRequest: Codable, Sendable {
     
     public var identityToken: String
     public var deviceId: UUID

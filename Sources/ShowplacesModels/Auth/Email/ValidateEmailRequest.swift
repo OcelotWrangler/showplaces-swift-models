@@ -5,9 +5,9 @@
 //  Created by Kevin Barnes on 5/24/24.
 //
 
-import Vapor
+import Foundation
 
-public struct ValidateEmailRequest: Content {
+public struct ValidateEmailRequest: Codable, Sendable {
     
     public var code: UUID
     
