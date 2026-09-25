@@ -19,6 +19,12 @@ public struct UpdateShowplaceDTO: Codable, Sendable, Hashable, Identifiable {
     public var latitude: Double
     public var longitude: Double
     public var postalAddress: UpdatePostalAddressDTO
+    /// The raw value of an `MKMapItem.Identifier`. See `ShowplaceDTO.mapItemIdentifier`.
+    ///
+    /// Written as sent, like every other field here, so nil clears it: an update must carry the
+    /// showplace's current identifier forward. The init has no default for it so a builder that
+    /// forgets does not compile, rather than quietly unlinking the place on every edit.
+    public var mapItemIdentifier: String?
     
     public init(
         id: UUID,
@@ -30,7 +36,8 @@ public struct UpdateShowplaceDTO: Codable, Sendable, Hashable, Identifiable {
         mediaKeys: [String],
         latitude: Double,
         longitude: Double,
-        postalAddress: UpdatePostalAddressDTO
+        postalAddress: UpdatePostalAddressDTO,
+        mapItemIdentifier: String?
     ) {
         self.id = id
         self.title = title
@@ -42,5 +49,6 @@ public struct UpdateShowplaceDTO: Codable, Sendable, Hashable, Identifiable {
         self.latitude = latitude
         self.longitude = longitude
         self.postalAddress = postalAddress
+        self.mapItemIdentifier = mapItemIdentifier
     }
 }

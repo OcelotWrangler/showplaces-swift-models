@@ -19,6 +19,11 @@ public struct ShowplaceDTO: Codable, Sendable, Hashable, Identifiable {
     public var latitude: Double
     public var longitude: Double
     public var postalAddress: PostalAddressDTO
+    /// Apple Maps' identifier for the place this showplace was created from — the raw value of
+    /// `MKMapItem.Identifier`. Nil when the showplace was dropped as a pin or typed in rather than
+    /// picked from a place Apple Maps knows. Opaque to the server, which only stores it: the client
+    /// resolves it with `MKMapItemRequest` to open the place in Apple Maps or show its place card.
+    public var mapItemIdentifier: String?
     public var visited: Bool
     public var ownershipStatus: OwnershipStatus
     
@@ -33,6 +38,7 @@ public struct ShowplaceDTO: Codable, Sendable, Hashable, Identifiable {
         latitude: Double,
         longitude: Double,
         postalAddress: PostalAddressDTO,
+        mapItemIdentifier: String? = nil,
         visited: Bool,
         ownershipStatus: OwnershipStatus
     ) {
@@ -46,6 +52,7 @@ public struct ShowplaceDTO: Codable, Sendable, Hashable, Identifiable {
         self.latitude = latitude
         self.longitude = longitude
         self.postalAddress = postalAddress
+        self.mapItemIdentifier = mapItemIdentifier
         self.visited = visited
         self.ownershipStatus = ownershipStatus
     }

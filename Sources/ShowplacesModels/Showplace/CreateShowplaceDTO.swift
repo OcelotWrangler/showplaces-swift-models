@@ -26,6 +26,8 @@ public struct CreateShowplaceDTO: Codable, Sendable, Hashable {
     public var latitude: Double
     public var longitude: Double
     public var postalAddress: CreatePostalAddressDTO
+    /// The raw value of an `MKMapItem.Identifier`. See `ShowplaceDTO.mapItemIdentifier`.
+    public var mapItemIdentifier: String?
     
     public init(
         id: UUID = UUID(),
@@ -37,7 +39,8 @@ public struct CreateShowplaceDTO: Codable, Sendable, Hashable {
         mediaKeys: [String],
         latitude: Double,
         longitude: Double,
-        postalAddress: CreatePostalAddressDTO
+        postalAddress: CreatePostalAddressDTO,
+        mapItemIdentifier: String? = nil
     ) {
         self.id = id
         self.title = title
@@ -49,5 +52,6 @@ public struct CreateShowplaceDTO: Codable, Sendable, Hashable {
         self.latitude = latitude
         self.longitude = longitude
         self.postalAddress = postalAddress
+        self.mapItemIdentifier = mapItemIdentifier
     }
 }
