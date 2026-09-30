@@ -2,11 +2,13 @@ import XCTest
 @testable import ShowplacesModels
 
 final class ShowplacesModelsTests: XCTestCase {
-    func testExample() throws {
-        // XCTest Documentation
-        // https://developer.apple.com/documentation/xctest
 
-        // Defining Test Cases and Test Methods
-        // https://developer.apple.com/documentation/xctest/defining_test_cases_and_test_methods
+    /// TestFlight builds from before group sharing decode an accept as `SuccessStatus`; the richer
+    /// response must still read as a success to them.
+    func testAcceptInviteResponseDecodesAsSuccessStatus() throws {
+        let response = AcceptInviteResponse(groupId: UUID(), showplaceIds: [UUID()], showplaceIdsNotCopied: [UUID()])
+        let data = try JSONEncoder().encode(response)
+        let status = try JSONDecoder().decode(SuccessStatus.self, from: data)
+        XCTAssertTrue(status.success)
     }
 }

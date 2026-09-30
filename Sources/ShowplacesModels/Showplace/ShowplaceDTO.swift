@@ -26,6 +26,13 @@ public struct ShowplaceDTO: Codable, Sendable, Hashable, Identifiable {
     public var mapItemIdentifier: String?
     public var visited: Bool
     public var ownershipStatus: OwnershipStatus
+    /// The owner's display name, for showplaces the viewer doesn't own. Nil on their own.
+    public var ownerDisplayName: String?
+    /// True when the viewer can see this showplace only because it is in a group they share: shared
+    /// with them, or their own group that a collaborator added it to. Such showplaces can be kept out
+    /// of the library and map and shown only inside their group. False for owned showplaces and for
+    /// anything shared on its own.
+    public var isSharedThroughGroup: Bool
     
     public init(
         id: UUID,
@@ -40,7 +47,9 @@ public struct ShowplaceDTO: Codable, Sendable, Hashable, Identifiable {
         postalAddress: PostalAddressDTO,
         mapItemIdentifier: String? = nil,
         visited: Bool,
-        ownershipStatus: OwnershipStatus
+        ownershipStatus: OwnershipStatus,
+        ownerDisplayName: String? = nil,
+        isSharedThroughGroup: Bool = false
     ) {
         self.id = id
         self.title = title
@@ -55,5 +64,7 @@ public struct ShowplaceDTO: Codable, Sendable, Hashable, Identifiable {
         self.mapItemIdentifier = mapItemIdentifier
         self.visited = visited
         self.ownershipStatus = ownershipStatus
+        self.ownerDisplayName = ownerDisplayName
+        self.isSharedThroughGroup = isSharedThroughGroup
     }
 }

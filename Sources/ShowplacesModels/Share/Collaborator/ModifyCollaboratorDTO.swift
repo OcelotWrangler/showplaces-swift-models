@@ -9,6 +9,7 @@ import Foundation
 
 public struct ModifyCollaboratorDTO: Codable, Sendable {
     
+    /// The collaborator's `CollaboratorDTO.shareId`, not their user id.
     public var collaboratorId: UUID
     public var accessLevel: AccessLevel
 

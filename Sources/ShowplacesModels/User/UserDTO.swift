@@ -14,6 +14,10 @@ public struct UserDTO: Codable, Sendable, Hashable, Identifiable {
     public var username: String
     public var firstName: String?
     public var lastName: String?
+    /// The name this person chose to show other people, if they have set one. What others actually
+    /// see is resolved server-side (see `CollaboratorDTO.displayName`), falling back to their name
+    /// from Apple and then their username.
+    public var displayName: String?
     public var profilePictureKey: String?
     public var isPro: Bool
     public var created: Date
@@ -25,6 +29,7 @@ public struct UserDTO: Codable, Sendable, Hashable, Identifiable {
         username: String,
         firstName: String? = nil,
         lastName: String? = nil,
+        displayName: String? = nil,
         profilePictureKey: String? = nil,
         isPro: Bool = false,
         created: Date,
@@ -35,6 +40,7 @@ public struct UserDTO: Codable, Sendable, Hashable, Identifiable {
         self.username = username
         self.firstName = firstName
         self.lastName = lastName
+        self.displayName = displayName
         self.profilePictureKey = profilePictureKey
         self.isPro = isPro
         self.created = created
