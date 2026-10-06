@@ -18,7 +18,11 @@ public struct UserDTO: Codable, Sendable, Hashable, Identifiable {
     /// see is resolved server-side (see `CollaboratorDTO.displayName`), falling back to their name
     /// from Apple and then their username.
     public var displayName: String?
-    public var profilePictureKey: String?
+    /// Changes with every upload. Fetch it from `GET /profile-pictures/:id`; an id never changes its
+    /// picture, so it can be cached for good. Nil when there is no picture.
+    public var profilePictureId: UUID?
+    /// Whether Sign in with Apple is connected. Email codes always work.
+    public var hasAppleSignIn: Bool
     public var isPro: Bool
     public var created: Date
     public var updated: Date
@@ -30,7 +34,8 @@ public struct UserDTO: Codable, Sendable, Hashable, Identifiable {
         firstName: String? = nil,
         lastName: String? = nil,
         displayName: String? = nil,
-        profilePictureKey: String? = nil,
+        profilePictureId: UUID? = nil,
+        hasAppleSignIn: Bool = false,
         isPro: Bool = false,
         created: Date,
         updated: Date
@@ -41,7 +46,8 @@ public struct UserDTO: Codable, Sendable, Hashable, Identifiable {
         self.firstName = firstName
         self.lastName = lastName
         self.displayName = displayName
-        self.profilePictureKey = profilePictureKey
+        self.profilePictureId = profilePictureId
+        self.hasAppleSignIn = hasAppleSignIn
         self.isPro = isPro
         self.created = created
         self.updated = updated

@@ -7,6 +7,8 @@
 
 import Foundation
 
+/// Password sign-in (`POST /auth/login`). Retired: kept only for TestFlight builds from before email
+/// codes, and removed once they expire. See `showplaces-accounts.md`, "Passwords Are Retired".
 public struct LoginRequest: Codable, Sendable {
     
     public var username: String

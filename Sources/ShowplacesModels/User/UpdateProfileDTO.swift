@@ -7,8 +7,8 @@
 
 import Foundation
 
-/// What a signed-in user can change about how other people see them. Profile pictures will join
-/// this once they have an upload path of their own.
+/// What a signed-in user can change about how other people see them (`PUT /profile`). The picture
+/// has its own endpoints, `PUT` and `DELETE /profile/picture`, since it is a raw JPEG body.
 public struct UpdateProfileDTO: Codable, Sendable {
 
     /// Nil or blank clears it, so others see the fallback name again.

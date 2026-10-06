@@ -8,7 +8,7 @@
 import Foundation
 
 /// One person with access to a shared showplace or group, as every other member sees them: a name
-/// and eventually a picture, never an email.
+/// and a picture, never an email.
 public struct CollaboratorDTO: Codable, Sendable, Hashable, Identifiable {
 
     /// The person's user id.
@@ -21,7 +21,8 @@ public struct CollaboratorDTO: Codable, Sendable, Hashable, Identifiable {
     /// Resolved on the server: the name they chose, else their name from Apple, else their username.
     public var displayName: String
 
-    public var profilePictureKey: String?
+    /// See `UserDTO.profilePictureId`. Nil when they have no picture.
+    public var profilePictureId: UUID?
 
     public var isOwner: Bool
 
@@ -32,14 +33,14 @@ public struct CollaboratorDTO: Codable, Sendable, Hashable, Identifiable {
         id: UUID,
         shareId: UUID?,
         displayName: String,
-        profilePictureKey: String? = nil,
+        profilePictureId: UUID? = nil,
         isOwner: Bool,
         accessLevel: AccessLevel
     ) {
         self.id = id
         self.shareId = shareId
         self.displayName = displayName
-        self.profilePictureKey = profilePictureKey
+        self.profilePictureId = profilePictureId
         self.isOwner = isOwner
         self.accessLevel = accessLevel
     }

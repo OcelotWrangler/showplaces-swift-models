@@ -37,4 +37,35 @@ final class ShowplacesModelsTests: XCTestCase {
         XCTAssertEqual(decoded, route)
         XCTAssertNil(decoded.stops[0].latitude)
     }
+
+    /// A newer server may send a code this build doesn't know; the rest of the error must still read.
+    func testAccountErrorResponseDecodesUnknownCode() throws {
+        let json = #"{"error":true,"reason":"Nope","code":"somethingNew","retryAfterSeconds":30}"#
+        let response = try JSONDecoder().decode(AccountErrorResponse.self, from: Data(json.utf8))
+        XCTAssertEqual(response.code, .unknown)
+        XCTAssertEqual(response.retryAfterSeconds, 30)
+        XCTAssertNil(response.attemptsRemaining)
+    }
+
+    /// The server encodes this as the body of every failed account request; it must round-trip.
+    func testAccountErrorResponseRoundTrips() throws {
+        let response = AccountErrorResponse(reason: "Wrong code", code: .incorrectCode, attemptsRemaining: 3)
+        let decoded = try JSONDecoder().decode(AccountErrorResponse.self, from: JSONEncoder().encode(response))
+        XCTAssertTrue(decoded.error)
+        XCTAssertEqual(decoded.code, .incorrectCode)
+        XCTAssertEqual(decoded.attemptsRemaining, 3)
+    }
+
+    /// Builds from before email codes decode only the two tokens; the richer response must still read.
+    func testLoginResponseDecodesForOlderClients() throws {
+        struct OldLoginResponse: Decodable {
+            var accessToken: String
+            var refreshToken: UUID
+        }
+
+        let user = UserDTO(id: UUID(), email: "a@b.c", username: "a", created: Date(), updated: Date())
+        let response = LoginResponse(accessToken: "jwt", refreshToken: UUID(), user: user, isNewAccount: true)
+        let old = try JSONDecoder().decode(OldLoginResponse.self, from: JSONEncoder().encode(response))
+        XCTAssertEqual(old.refreshToken, response.refreshToken)
+    }
 }
